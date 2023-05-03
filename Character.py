@@ -30,6 +30,9 @@ class Character():
         other.Hp -= self.Atk
         self.Stm -= 20
 
+
+
+
     
 class Warrior(Character):
     def __init__(self, x, y, image_path, name, Hp = 150, Atk = 5, Def = 10, Spd = 2, Xp = 0, Stm = 100, Estado = True):
