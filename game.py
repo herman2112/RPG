@@ -1,3 +1,4 @@
+from Character import *
 import pygame
 import sys
 
@@ -21,7 +22,10 @@ def main():
                 sys.quit()
 
 
-
+        keys = pygame.key.get_pressed()
+        dx = keys[pygame.K_RIGHT] - keys[pygame.K_LEFT]
+        dy = keys[pygame.K_DOWN] - keys[pygame.K_UP]
+        ##player.move(dx, dy)
         pygame.display.flip()
         pygame.time.delay(60)
 
