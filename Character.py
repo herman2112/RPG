@@ -24,4 +24,7 @@ class Character():
     def attack(self, other):
         other.Hp -= self.Atk
 
+
+
+
     

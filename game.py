@@ -1,33 +1,33 @@
-from Character import *
+import Character
 import pygame
 import sys
 
-pygame.init()
+class Game:
+    def __init__(self, screen_width, screen_height, status = False):
+        self.screen_width = screen_width
+        self.screen_height = screen_height
+        self.status = status
+    
+    # Instance methods
+    def run(self):
+        pygame.init()
+        self.status = True
+        screen = pygame.display.set_mode((self.screen_width, self.screen_height))
+        pygame.display.set_caption('jogo bom d+')
 
-screen_width = 800
-screen_height = 600
-running = True
+    def quit(self):
+        pygame.quit()
+        sys.quit()
 
-screen = pygame.display.set_mode((screen_width, screen_height))
-
-pygame.display.set_caption('jogo bom d+')
 
 def main():
 
-    while running:
+    game = Game(1280, 720)
 
-        for event in pygame.event.get():
-            if event.type == pygame.QUIT:
-                pygame.quit()
-                sys.quit()
+    game.run()
 
-
-        keys = pygame.key.get_pressed()
-        dx = keys[pygame.K_RIGHT] - keys[pygame.K_LEFT]
-        dy = keys[pygame.K_DOWN] - keys[pygame.K_UP]
-        ##player.move(dx, dy)
-        pygame.display.flip()
-        pygame.time.delay(60)
+    while game.status:
+        pass
 
 if __name__ == '__main__':
     main()
