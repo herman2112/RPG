@@ -65,7 +65,7 @@ class Orc(Character):
         self.Stm -= 50
 
 class Dragao(Character):
-    def __init__(self, x, y, image_path, name, Hp = 100, Atk = 8, Def = 6, Spd = 3, Xp = 0, Stm = 100, Estado = True)
+    def __init__(self, x, y, image_path, name, Hp = 100, Atk = 8, Def = 6, Spd = 3, Xp = 0, Stm = 100, Estado = True):
         pass
     def BolaDeFogo(self, other):
         other.Hp -= 20
