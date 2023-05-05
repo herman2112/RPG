@@ -1,6 +1,5 @@
 import Character
 import pygame
-import tkinter as tk
 import sys
 
 class Game:
@@ -9,40 +8,51 @@ class Game:
         self.screen_height = screen_height
         self.status = status
     
+    # Class methods
+    @classmethod
+    def render_screen(cls, surf, color):
+        pass
+
     # Instance methods
     def run(self):
         pygame.init()
         
+        print("Game is running!")
+
         self.status = True
         
         screen = pygame.display.set_mode((self.screen_width, self.screen_height))
         
         clock = pygame.time.Clock()
         
-        pygame.display.set_caption('jogo bom d+')
+        pygame.display.set_caption('RPG nosso de cada dia')
         
-        while self.status:
+        while True:
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     quit()
-                    
-            screen.fill("white")
             
+            screen.fill("white")
+
+            # Game render here
+
+            Game.render_screen()
+
             pygame.display.flip()
-                
-        pygame.quit()
-        sys.quit()
 
     def quit(self):
         self.status = False
+        print("The game has quit!")
+        pygame.quit()
+        sys.quit()
         return
 
 
 def main():
 
-    root = tk.Tk()
+    #root = tk.Tk()
     
-    game = Game(root.winfo_screenwidth(), root.winfo_screenheight())
+    game = Game(1280, 720)
 
     game.run()
 
