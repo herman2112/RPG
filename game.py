@@ -1,5 +1,6 @@
 import Character
 import pygame
+import tkinter as tk
 import sys
 
 class Game:
@@ -11,23 +12,39 @@ class Game:
     # Instance methods
     def run(self):
         pygame.init()
+        
         self.status = True
+        
         screen = pygame.display.set_mode((self.screen_width, self.screen_height))
+        
+        clock = pygame.time.Clock()
+        
         pygame.display.set_caption('jogo bom d+')
-
-    def quit(self):
+        
+        while self.status:
+            for event in pygame.event.get():
+                if event.type == pygame.QUIT:
+                    quit()
+                    
+            screen.fill("white")
+            
+            pygame.display.flip()
+                
         pygame.quit()
         sys.quit()
+
+    def quit(self):
+        self.status = False
+        return
 
 
 def main():
 
-    game = Game(1280, 720)
+    root = tk.Tk()
+    
+    game = Game(root.winfo_screenwidth(), root.winfo_screenheight())
 
     game.run()
-
-    while game.status:
-        pass
 
 if __name__ == '__main__':
     main()
