@@ -4,31 +4,30 @@ import Button
 pygame.init()
 
 ##cria a tela
-screen_width = 800
-screen_heigth = 600
+screen_width = 1240
+screen_heigth = 720
 
 screen = pygame.display.set_mode((screen_width, screen_heigth))
 pygame.display.set_caption("Main Menu")
-
 
 #game variables
 game_paused = False
 menu_state = "main"
 
 ##fonte do texto
-font = pygame.font.SysFont("ariablack",40)
+font = pygame.font.SysFont("arialblack",20)
 TEXT_COL = (255,255,255)
 
 #load button images
-resume_img = pygame.image.load("images/button_resume.png").convert_alpha()
-options_img = pygame.image.load("images/button_options.png").convert_alpha()
-quit_img = pygame.image.load("images/button_quit.png").convert_alpha()
-video_img = pygame.image.load('images/button_video.png').convert_alpha()
-audio_img = pygame.image.load('images/button_audio.png').convert_alpha()
-keys_img = pygame.image.load('images/button_keys.png').convert_alpha()
-back_img = pygame.image.load('images/button_back.png').convert_alpha()
+resume_img = pygame.image.load("imagens/button_resume.png")
+options_img = pygame.image.load("imagens/button_options.png")
+quit_img = pygame.image.load("imagens/button_quit.png")
+video_img = pygame.image.load("imagens/button_video.png")
+audio_img = pygame.image.load("imagens/button_audio.png")
+keys_img = pygame.image.load("imagens/button_keys.png")
+back_img = pygame.image.load("imagens/button_back.png")
 
-#crate button instaces
+#create button instaces
 resume_button = Button.Button(304, 125, resume_img, 1)
 options_button = Button.Button(297, 250, options_img, 1)
 quit_button = Button.Button(336, 375, quit_img, 1)
@@ -40,7 +39,6 @@ back_button = Button.Button(332, 450, back_img, 1)
 def draw_text(text, font, text_col, x, y):
     img = font.render(text, True, text_col)
     screen.blit(img, (x, y))
-
 
 run = True
 while run:
@@ -70,7 +68,8 @@ while run:
                 menu_state = "main"
     #display menu
     else:
-        draw_text("Precione ESPACO para pausar", font, TEXT_COL, 200, 290)
+        #draw_text("Precione ESPACO para pausar", font, TEXT_COL, 200, 290)
+        pass
 
     for event in pygame.event.get():
         if event.type == pygame.KEYDOWN:
