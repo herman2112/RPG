@@ -12,7 +12,7 @@ class TileMap:
         return load_pygame(self.filename)
     
 
-map = TileMap('village.tmx')
+map = TileMap('village/VILLAGE.tmx')
 
 print(map.load_tmx().layers)
 
