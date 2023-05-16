@@ -24,13 +24,18 @@ class Game:
         
         return False
     
+    def draw_scene(self, scene):
+        if scene == "village":
+            render_village(self._surface)
+
+    
 
 def main():
     
     print("The game is running!")
     game = Game(screen)
     
-    while 1:
+    while True:
         if game.quit_game():
             print("Game is quitting!")
             pygame.quit()
@@ -39,8 +44,7 @@ def main():
         # LOGIC
         
         # DRAW
-        screen.fill("black")
-        render_village(screen)
+        game.draw_scene("village")
                 
         pygame.display.update()
         
