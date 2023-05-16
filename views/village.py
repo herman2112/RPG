@@ -1,9 +1,9 @@
 import pygame
 import os
-from .assets import get_assets
+from assets.get_assets import TileMap
 
 def render_village(screen):
-    tile_map = get_assets.TileMap("views/assets/village/VILLAGE.tmx")
+    tile_map = TileMap("views/assets/village/VILLAGE.tmx")
 
     layer_tiles = tile_map.load_tmx()
 

@@ -30,11 +30,11 @@ def main():
     print("The game is running!")
     game = Game(screen)
     
-    while 1:
+    while True:
         if game.quit_game():
             print("Game is quitting!")
             pygame.quit()
-            quit()
+            sys.exit()
         
         # LOGIC
         
