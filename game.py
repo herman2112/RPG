@@ -1,60 +1,49 @@
 import Character
+from views.village import render_village
 import pygame
 import sys
 
+pygame.init()
+clock = pygame.time.Clock()
+
+
+screen = pygame.display.set_mode((1280, 720))
+
+pygame.display.set_caption('Highland')
+
 class Game:
-    def __init__(self, screen_width, screen_height, status = False):
-        self.screen_width = screen_width
-        self.screen_height = screen_height
-        self.status = status
+    def __init__(self, surface):
+        self._surface = surface
     
-    # Class methods
-    @classmethod
-    def render_screen(cls, surf, color):
-        pass
-
+    
     # Instance methods
-    def run(self):
-        pygame.init()
+    def quit_game(self):
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                return True
         
-        print("Game is running!")
-
-        self.status = True
-        
-        screen = pygame.display.set_mode((self.screen_width, self.screen_height))
-        
-        clock = pygame.time.Clock()
-        
-        pygame.display.set_caption('RPG nosso de cada dia')
-        
-        while True:
-            for event in pygame.event.get():
-                if event.type == pygame.QUIT:
-                    quit()
-            
-            screen.fill("white")
-
-            # Game render here
-
-            Game.render_screen()
-
-            pygame.display.flip()
-
-    def quit(self):
-        self.status = False
-        print("The game has quit!")
-        pygame.quit()
-        sys.quit()
-        return
-
+        return False
+    
 
 def main():
-
-    #root = tk.Tk()
     
-    game = Game(1280, 720)
+    print("The game is running!")
+    game = Game(screen)
+    
+    while 1:
+        if game.quit_game():
+            print("Game is quitting!")
+            pygame.quit()
+            quit()
+        
+        # LOGIC
+        
+        # DRAW
+        screen.fill("black")
+        render_village(screen)
+                
+        pygame.display.update()
+        
 
-    game.run()
-
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()
