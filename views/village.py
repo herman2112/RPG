@@ -10,4 +10,4 @@ def render_village(screen):
 
     for layer in layer_tiles:
         for tile in layer_tiles[layer]:
-            screen.blit(tile[2], (tile[0], tile[1]))
+            screen.blit(tile["surface"], tile["coordinates"])
