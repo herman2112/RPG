@@ -18,6 +18,9 @@ class TileMap:
 
             layer_tiles[name] = []
             for x, y, surface in layer.tiles():
-                layer_tiles[name].append([x, y, surface])
+                layer_tiles[name].append({
+                    "surface": surface,
+                    "coordinates": (x * 16, y * 16)
+                })
         
         return layer_tiles
