@@ -7,7 +7,7 @@ class Title(State):
     def update(self, delta_time, actions):
         if actions["start"]:
             new_state = Village(self.game)
-            new_state.enter_state(g)
+            new_state.enter_state()
         self.game.reset_keys()
 
     def render(self, display):
