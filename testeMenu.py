@@ -68,8 +68,8 @@ while run:
                 menu_state = "main"
     #display menu
     else:
-        #draw_text("Precione ESPACO para pausar", font, TEXT_COL, 200, 290)
-        pass
+        draw_text("Precione ESPACO para pausar", font, TEXT_COL, 200, 290)
+        #pass
 
     for event in pygame.event.get():
         if event.type == pygame.KEYDOWN:
